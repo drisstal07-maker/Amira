@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InstaTools Pro</title>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+    --bg:#07080c;
+    --card:#11141b;
+    --card2:#191c25;
+    --border:#292e39;
+    --text:#ffffff;
+    --sub:#969daa;
+    --instagram:linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+    --pink:#e1306c;
+    --green:#20e070;
+    --green2:#00ff88;
+}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(214,41,118,.25),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(32,224,112,.035),
+            transparent 40%
+        ),
+        #07080c;
+    color:var(--text);
+    display:flex;
+    justify-content:center;
+}
+.app-container{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    background:rgba(7,8,12,.96);
+    border-left:1px solid var(--border);
+    border-right:1px solid var(--border);
+    position:relative;
+    padding-bottom:95px;
+    overflow:hidden;
+}
+/* ================= HEADER ================= */
+header{
+    height:66px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 17px;
+    border-bottom:1px solid var(--border);
+    background:rgba(7,8,12,.82);
+    backdrop-filter:blur(20px);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+.logo{
+    font-size:21px;
+    font-weight:850;
+    letter-spacing:-.7px;
+}
+.logo .insta{
+    background:var(--instagram);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.menu-btn,
+.icon-btn{
+    width:39px;
+    height:39px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:linear-gradient(
+        145deg,
+        #171a22,
+        #101219
+    );
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+}
+.menu-btn:hover,
+.icon-btn:hover{
+    transform:translateY(-2px);
+    border-color:#444a57;
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.3);
+}
+.header-right{
+    display:flex;
+    gap:7px;
+}
+/* ================= ONLINE ================= */
+.online-box{
+    text-align:center;
+    padding:15px 15px 9px;
+}
+.online-title{
+    color:var(--sub);
+    font-size:9px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+.online-number{
+    margin-top:5px;
+    font-size:21px;
+    font-weight:850;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+}
+.online-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:
+        0 0 7px var(--green),
+        0 0 15px rgba(32,224,112,.6);
+    animation:onlinePulse 1.5s infinite;
+}
+@keyframes onlinePulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:1;
+    }
+    50%{
+        transform:scale(1.35);
+        opacity:.65;
+    }
+}
+/* ================= MAIN ================= */
+.main-content{
+    padding:13px 18px 25px;
+}
+/* ================= HERO ================= */
+.welcome-card{
+    position:relative;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(214,41,118,.16),
+            rgba(17,20,27,.98) 55%
+        );
+    border:1px solid rgba(214,41,118,.25);
+    border-radius:22px;
+    padding:20px;
+    overflow:hidden;
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.28);
+    transition:
+        border .3s,
+        box-shadow .3s,
+        transform .3s;
+}
+.welcome-card::before{
+    content:"";
+    position:absolute;
+    width:190px;
+    height:190px;
+    top:-100px;
+    right:-70px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(214,41,118,.35),
+            transparent 70%
+        );
+    pointer-events:none;
+    animation:
+        heroGlow 4s ease-in-out infinite;
+}
+@keyframes heroGlow{
+    0%,100%{
+        transform:scale(1);
+        opacity:.7;
+    }
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+}
+.welcome-card.active{
+    border-color:
+        rgba(32,224,112,.45);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        0 0 35px rgba(32,224,112,.08);
+}
+.welcome-top{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+.insta-avatar-icon{
+    width:50px;
+    height:50px;
+    border-radius:16px;
+    background:var(--instagram);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    box-shadow:
+        0 8px 28px rgba(214,41,118,.3);
+    animation:
+        avatarFloat 3s ease-in-out infinite;
+}
+@keyframes avatarFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-3px);
+    }
+}
+.welcome-title{
+    font-size:16px;
+    font-weight:800;
+}
+.welcome-sub{
+    margin-top:4px;
+    font-size:10px;
+    color:var(--sub);
+}
+/* ================= CONSOLE ================= */
+.console-text{
+    position:relative;
+    z-index:2;
+    min-height:55px;
+    margin-top:17px;
+    font-size:13px;
+    line-height:1.55;
+}
+/* ================= SUCCESS MESSAGE ================= */
+.profile-success{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:4px;
+    padding:13px 14px;
+    border-radius:15px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(32,224,112,.14),
+            rgba(32,224,112,.045)
+        );
+    border:1px solid
+        rgba(32,224,112,.38);
+    box-shadow:
+        0 0 25px rgba(32,224,112,.07);
+    animation:
+        successIn .45s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes successIn{
+    from{
+        opacity:0;
+        transform:
+            translateY(8px)
+            scale(.98);
+    }
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+.success-icon{
+    width:36px;
+    height:36px;
+    flex-shrink:0;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        rgba(32,224,112,.16);
+    color:var(--green2);
+    box-shadow:
+        0 0 18px rgba(32,224,112,.15);
+    animation:
+        successPulse 1.8s infinite;
+}
+@keyframes successPulse{
+    0%,100%{
+        box-shadow:
+            0 0 12px rgba(32,224,112,.12);
+    }
+    50%{
+        box-shadow:
+            0 0 23px rgba(32,224,112,.28);
+    }
+}
+.success-content{
+    min-width:0;
+}
+.success-label{
+    color:var(--green2);
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+}
+.success-user{
+    margin-top:2px;
+    font-size:13px;
+    font-weight:750;
+    color:white;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+/* ================= TYPING ================= */
+.typing-indicator{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    width:max-content;
+    padding:8px 12px;
+    border-radius:18px;
+    background:var(--card2);
+}
+.typing-indicator span{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--pink);
+    animation:typing 1.2s infinite;
+}
+.typing-indicator span:nth-child(2){
+    animation-delay:.2s;
+}
+.typing-indicator span:nth-child(3){
+    animation-delay:.4s;
+}
+@keyframes typing{
+    0%,80%,100%{
+        transform:translateY(0);
+        opacity:.3;
+    }
+    40%{
+        transform:translateY(-5px);
+        opacity:1;
+    }
+}
+/* ================= INPUT ================= */
+.input-wrapper{
+    position:relative;
+    z-index:2;
+    margin-top:16px;
+    display:flex;
+    gap:8px;
+}
+.input-box{
+    position:relative;
+    flex:1;
+    min-width:0;
+}
+.input-icon{
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#777d89;
+    font-size:13px;
+    pointer-events:none;
+    transition:.25s;
+}
+.target-input{
+    width:100%;
+    background:
+        linear-gradient(
+            145deg,
+            #1b1e27,
+            #151820
+        );
+    border:1px solid #303540;
+    color:white;
+    padding:14px 14px 14px 38px;
+    border-radius:15px;
+    outline:none;
+    font-size:13px;
+    transition:
+        .25s;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025);
+}
+.target-input::placeholder{
+    color:#737985;
+}
+.target-input:focus{
+    border-color:
+        rgba(214,41,118,.8);
+    background:#1c202a;
+    box-shadow:
+        0 0 0 3px
+        rgba(214,41,118,.09),
+        0 8px 25px rgba(0,0,0,.18);
+}
+.input-box:focus-within .input-icon{
+    color:#f05a8b;
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+.submit-btn{
+    width:50px;
+    border:none;
+    border-radius:15px;
+    background:var(--instagram);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    box-shadow:
+        0 8px 22px rgba(214,41,118,.25);
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+}
+.submit-btn::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:60%;
+    height:100%;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.28),
+            transparent
+        );
+    transform:skewX(-20deg);
+    transition:.5s;
+}
+.submit-btn:hover::after{
+    left:130%;
+}
+.submit-btn:hover{
+    transform:
+        translateY(-2px)
+        scale(1.02);
+    box-shadow:
+        0 11px 30px rgba(214,41,118,.35);
+}
+.submit-btn:active{
+    transform:scale(.95);
+}
+/* ================= FEATURES ================= */
+.features-list{
+    display:none;
+    flex-direction:column;
+    gap:9px;
+    margin-top:18px;
+    animation:
+        featuresIn .4s ease;
+}
+.features-list.show{
+    display:flex;
+}
+@keyframes featuresIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.features-title{
+    color:var(--sub);
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1.3px;
+    margin:2px 3px 3px;
+}
+.feature-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px;
+    background:
+        linear-gradient(
+            145deg,
+            #14171e,
+            #101218
+        );
+    border:1px solid var(--border);
+    border-radius:16px;
+    cursor:pointer;
+    transition:
+        .25s;
+    position:relative;
+    overflow:hidden;
+}
+.feature-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(214,41,118,.06),
+            transparent
+        );
+    opacity:0;
+    transition:.25s;
+}
+.feature-card:hover::before{
+    opacity:1;
+}
+.feature-card:hover{
+    transform:
+        translateY(-2px);
+    border-color:
+        rgba(214,41,118,.55);
+    box-shadow:
+        0 10px 25px
+        rgba(214,41,118,.10);
+}
+.feature-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    position:relative;
+    z-index:1;
+}
+.feature-icon{
+    width:39px;
+    height:39px;
+    border-radius:12px;
+    background:
+        rgba(214,41,118,.11);
+    color:#e1306c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.25s;
+}
+.feature-card:hover .feature-icon{
+    background:
+        rgba(214,41,118,.17);
+    transform:scale(1.05);
+}
+.feature-title{
+    font-size:13px;
+    font-weight:700;
+}
+.feature-description{
+    color:var(--sub);
+    font-size:10px;
+    margin-top:2px;
+}
+.feature-arrow{
+    color:#777b86;
+    font-size:11px;
+    position:relative;
+    z-index:1;
+}
+/* ================= VERIFY ================= */
+.verify-box{
+    display:none;
+    margin-top:16px;
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(214,41,118,.15),
+            rgba(17,19,25,.98)
+        );
+    border:1px solid
+        rgba(214,41,118,.38);
+    animation:
+        verifyAppear .35s ease;
+}
+.verify-box.show{
+    display:block;
+}
+@keyframes verifyAppear{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.verify-icon{
+    width:60px;
+    height:60px;
+    margin:auto;
+    border-radius:18px;
+    background:var(--instagram);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    box-shadow:
+        0 10px 30px rgba(214,41,118,.3);
+}
+.verify-title{
+    margin-top:13px;
+    font-size:18px;
+    font-weight:800;
+}
+.verify-description{
+    margin-top:7px;
+    color:var(--sub);
+    font-size:12px;
+    line-height:1.55;
+}
+.verify-btn{
+    width:100%;
+    margin-top:17px;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:var(--instagram);
+    color:white;
+    font-weight:750;
+    font-size:14px;
+    cursor:pointer;
+    box-shadow:
+        0 8px 25px rgba(214,41,118,.25);
+    transition:.25s;
+}
+.verify-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 12px 32px
+        rgba(214,41,118,.35);
+}
+.verify-btn i{
+    margin-right:6px;
+}
+.session-status{
+    margin-top:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:7px;
+    font-size:10px;
+    color:var(--sub);
+}
+.status-dot{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:
+        0 0 7px var(--green);
+    animation:
+        onlinePulse 1.5s infinite;
+}
+/* ================= MENU ================= */
+.dropdown-menu{
+    display:none;
+    position:absolute;
+    top:59px;
+    left:15px;
+    width:225px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
+    z-index:200;
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.5);
+    animation:
+        menuIn .18s ease;
+}
+.dropdown-menu.active{
+    display:block;
+}
+@keyframes menuIn{
+    from{
+        opacity:0;
+        transform:translateY(-5px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.dropdown-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 15px;
+    color:white;
+    text-decoration:none;
+    font-size:12px;
+    border-bottom:1px solid var(--border);
+    transition:.2s;
+}
+.dropdown-item:hover{
+    background:#191c24;
+}
+.dropdown-item:last-child{
+    border-bottom:none;
+}
+.dropdown-item i{
+    color:#e1306c;
+}
+/* ================= FOOTER ================= */
+.input-dock{
+    position:fixed;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:480px;
+    padding:12px 18px 17px;
+    background:rgba(8,9,13,.94);
+    backdrop-filter:blur(18px);
+    border-top:1px solid var(--border);
+    z-index:90;
+}
+.dock-footer{
+    text-align:center;
+    color:#777b86;
+    font-size:9px;
+    margin-top:7px;
+}
+/* ================= LIGHT MODE ================= */
+body.light-mode{
+    --bg:#f5f6f8;
+    --card:#ffffff;
+    --card2:#eef0f4;
+    --border:#dedfe5;
+    --text:#101217;
+    --sub:#626873;
+}
+body.light-mode .app-container{
+    background:#f5f6f8;
+}
+body.light-mode header,
+body.light-mode .input-dock{
+    background:rgba(245,246,248,.94);
+}
+body.light-mode .target-input{
+    color:#101217;
+}
+/* ================= RTL ================= */
+html[dir="rtl"]{
+    direction:rtl;
+}
+html[dir="rtl"] .dropdown-menu{
+    left:auto;
+    right:15px;
+}
+html[dir="rtl"] .verify-btn i{
+    margin-right:0;
+    margin-left:6px;
+}
+html[dir="rtl"] .input-icon{
+    left:auto;
+    right:14px;
+}
+html[dir="rtl"] .target-input{
+    padding-left:14px;
+    padding-right:38px;
+}
+/* ================= MOBILE ================= */
+@media(max-width:380px){
+    .main-content{
+        padding-left:13px;
+        padding-right:13px;
+    }
+    .welcome-card{
+        padding:16px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="app-container">
+<!-- ================= HEADER ================= -->
+<header>
+    <div class="header-left">
+        <button class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="logo">
+            <span class="insta">Insta</span>Tools
+        </div>
+    </div>
+    <div class="header-right">
+        <button class="icon-btn" id="langBtn">
+            <i class="fa-solid fa-globe"></i>
+        </button>
+        <button class="icon-btn" id="themeBtn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+</header>
+<!-- ================= MENU ================= -->
+<div class="dropdown-menu" id="menu">
+    <a href="#" class="dropdown-item">
+        <i class="fa-solid fa-circle-info"></i>
+        About InstaTools
+    </a>
+    <a href="#" class="dropdown-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        Privacy
+    </a>
+    <a href="#" class="dropdown-item">
+        <i class="fa-solid fa-circle-question"></i>
+        Help Center
+    </a>
+</div>
+<!-- ================= ONLINE ================= -->
+<div class="online-box">
+    <div class="online-title">
+        InstaTools Live Sessions
+    </div>
+    <div class="online-number">
+        <span class="online-dot"></span>
+        <span id="onlineCount">
+            1,284
+        </span>
+    </div>
+</div>
+<!-- ================= MAIN ================= -->
+<div class="main-content">
+<div class="welcome-card" id="welcomeCard">
+    <!-- TOP -->
+    <div class="welcome-top">
+        <div class="insta-avatar-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div>
+            <div class="welcome-title">
+                InstaTools Pro
+            </div>
+            <div class="welcome-sub">
+                Interactive tools dashboard
+            </div>
+        </div>
+    </div>
+    <!-- CONSOLE -->
+    <div class="console-text"
+         id="consoleText">
+    </div>
+    <!-- INPUT -->
+    <div class="input-wrapper">
+        <div class="input-box">
+            <i class="fa-brands fa-instagram input-icon"></i>
+            <input
+                type="text"
+                id="targetUsername"
+                class="target-input"
+                placeholder="Enter Instagram username..."
+                autocomplete="off"
+            >
+        </div>
+        <button
+            class="submit-btn"
+            onclick="submitUsername()">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+</div>
+<!-- ================= FEATURES ================= -->
+<div class="features-list"
+     id="featuresList">
+    <div class="features-title">
+        SELECT A TOOL
+    </div>
+    <div class="feature-card"
+         onclick="selectFeature('Profile Preview')">
+        <div class="feature-left">
+            <div class="feature-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div>
+                <div class="feature-title">
+                    Profile Preview
+                </div>
+                <div class="feature-description">
+                    Interactive public profile demo
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-chevron-right feature-arrow"></i>
+    </div>
+    <div class="feature-card"
+         onclick="selectFeature('Story Viewer Demo')">
+        <div class="feature-left">
+            <div class="feature-icon">
+                <i class="fa-solid fa-circle-play"></i>
+            </div>
+            <div>
+                <div class="feature-title">
+                    Story Viewer Demo
+                </div>
+                <div class="feature-description">
+                    Interactive story interface
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-chevron-right feature-arrow"></i>
+    </div>
+    <div class="feature-card"
+         onclick="selectFeature('Chat UI Demo')">
+        <div class="feature-left">
+            <div class="feature-icon">
+                <i class="fa-solid fa-comment-dots"></i>
+            </div>
+            <div>
+                <div class="feature-title">
+                    Chat UI Demo
+                </div>
+                <div class="feature-description">
+                    Messaging interface preview
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-chevron-right feature-arrow"></i>
+    </div>
+    <div class="feature-card"
+         onclick="selectFeature('Location Demo')">
+        <div class="feature-left">
+            <div class="feature-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+                <div class="feature-title">
+                    Location Demo
+                </div>
+                <div class="feature-description">
+                    Interactive location interface
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-chevron-right feature-arrow"></i>
+    </div>
+    <div class="feature-card"
+         onclick="selectFeature('Activity Preview')">
+        <div class="feature-left">
+            <div class="feature-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div>
+                <div class="feature-title">
+                    Activity Preview
+                </div>
+                <div class="feature-description">
+                    Activity analytics demo
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-chevron-right feature-arrow"></i>
+    </div>
+    <div class="feature-card"
+         onclick="selectFeature('Typing View Demo')">
+        <div class="feature-left">
+            <div class="feature-icon">
+                <i class="fa-solid fa-keyboard"></i>
+            </div>
+            <div>
+                <div class="feature-title">
+                    Typing View
+                </div>
+                <div class="feature-description">
+                    Interactive typing-status demo
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-chevron-right feature-arrow"></i>
+    </div>
+</div>
+<!-- ================= VERIFY ================= -->
+<div class="verify-box"
+     id="verifyBox">
+    <div class="verify-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+    </div>
+    <div class="verify-title">
+        Verification Required
+    </div>
+    <div class="verify-description"
+         id="verifyDescription">
+        Your selected tool is ready.
+        Complete the verification step to continue.
+    </div>
+    <button
+        class="verify-btn"
+        onclick="verifyNow()">
+        <i class="fa-solid fa-shield-halved"></i>
+        Verify Now
+    </button>
+    <div class="session-status">
+        <span class="status-dot"></span>
+        Secure demo session active
+    </div>
+</div>
+</div>
+<!-- ================= FOOTER ================= -->
+<div class="input-dock">
+    <div class="dock-footer">
+        InstaTools Pro • Interactive Demo
+    </div>
+</div>
+</div>
+<script>
+/* =========================
+   VARIABLES
+========================= */
+let onlineUsers = 1284;
+let activeUser = "";
+let activeFeature = "";
+/* =========================
+   ONLINE COUNTER
+========================= */
+setInterval(() => {
+    const variation =
+        Math.floor(Math.random() * 11) - 5;
+    onlineUsers += variation;
+    if(onlineUsers < 1000)
+        onlineUsers = 1000;
+    if(onlineUsers > 1600)
+        onlineUsers = 1600;
+    document.getElementById(
+        "onlineCount"
+    ).textContent =
+        onlineUsers.toLocaleString();
+},1500);
+/* =========================
+   TYPING
+========================= */
+async function showTyping(){
+    const box =
+        document.getElementById(
+            "consoleText"
+        );
+    box.innerHTML = `
+        <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    `;
+    await new Promise(
+        resolve =>
+        setTimeout(resolve,650)
+    );
+}
+/* =========================
+   STREAM TEXT
+========================= */
+async function streamText(text){
+    const box =
+        document.getElementById(
+            "consoleText"
+        );
+    await showTyping();
+    box.innerHTML = "";
+    const words =
+        text.split(" ");
+    for(
+        let i = 0;
+        i < words.length;
+        i++
+    ){
+        const word =
+            document.createElement("span");
+        word.textContent =
+            words[i] +
+            (
+                i === words.length - 1
+                ? ""
+                : " "
+            );
+        word.style.opacity = "0";
+        word.style.transition =
+            "opacity .12s ease";
+        box.appendChild(word);
+        requestAnimationFrame(() => {
+            word.style.opacity = "1";
+        });
+        await new Promise(
+            resolve =>
+            setTimeout(resolve,75)
+        );
+    }
+}
+/* =========================
+   SUCCESS CARD
+========================= */
+function showProfileSuccess(username){
+    const box =
+        document.getElementById(
+            "consoleText"
+        );
+    box.innerHTML = `
+        <div class="profile-success">
+            <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="success-content">
+                <div class="success-label">
+                    Profile Selected
+                </div>
+                <div class="success-user">
+                    @${escapeHTML(username)}
+                </div>
+            </div>
+        </div>
+    `;
+}
+/* =========================
+   SAFE TEXT
+========================= */
+function escapeHTML(text){
+    return text
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+/* =========================
+   SUBMIT USERNAME
+========================= */
+async function submitUsername(){
+    const input =
+        document.getElementById(
+            "targetUsername"
+        );
+    const username =
+        input.value
+        .trim()
+        .replace(/^@/,"");
+    if(!username){
+        await streamText(
+            "Please enter an Instagram username to continue."
+        );
+        return;
+    }
+    activeUser = username;
+    document.getElementById(
+        "featuresList"
+    ).classList.remove("show");
+    document.getElementById(
+        "verifyBox"
+    ).classList.remove("show");
+    document.getElementById(
+        "welcomeCard"
+    ).classList.add("active");
+    await showTyping();
+    showProfileSuccess(username);
+    setTimeout(() => {
+        document.getElementById(
+            "featuresList"
+        ).classList.add("show");
+    },450);
+}
+/* =========================
+   SELECT FEATURE
+========================= */
+async function selectFeature(feature){
+    activeFeature = feature;
+    document.getElementById(
+        "verifyBox"
+    ).classList.remove("show");
+    await streamText(
+        `${feature} selected. Preparing the interactive demo for @${activeUser}.`
+    );
+    setTimeout(() => {
+        document.getElementById(
+            "verifyDescription"
+        ).textContent =
+            `${feature} is ready for this demo session. Continue with verification to proceed.`;
+        document.getElementById(
+            "verifyBox"
+        ).classList.add("show");
+        document.getElementById(
+            "verifyBox"
+        ).scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+    },550);
+}
+/* =========================
+   VERIFY
+========================= */
+function verifyNow(){
+    window.location.href =
+        "https://trckapp.org/cl/i/34jjr7";
+}
+/* =========================
+   MENU
+========================= */
+const menuBtn =
+    document.getElementById(
+        "menuBtn"
+    );
+const menu =
+    document.getElementById(
+        "menu"
+    );
+menuBtn.addEventListener(
+    "click",
+    function(e){
+        e.stopPropagation();
+        menu.classList.toggle(
+            "active"
+        );
+    }
+);
+document.addEventListener(
+    "click",
+    function(){
+        menu.classList.remove(
+            "active"
+        );
+    }
+);
+/* =========================
+   LANGUAGE
+========================= */
+document.getElementById(
+    "langBtn"
+).addEventListener(
+    "click",
+    function(){
+        alert(
+            "Language selector can be connected to EN / FR / AR translations."
+        );
+    }
+);
+/* =========================
+   DARK / LIGHT
+========================= */
+document.getElementById(
+    "themeBtn"
+).addEventListener(
+    "click",
+    function(){
+        document.body.classList.toggle(
+            "light-mode"
+        );
+        const icon =
+            this.querySelector("i");
+        if(
+            document.body.classList.contains(
+                "light-mode"
+            )
+        ){
+            icon.className =
+                "fa-solid fa-sun";
+        }else{
+            icon.className =
+                "fa-solid fa-moon";
+        }
+    }
+);
+/* =========================
+   ENTER KEY
+========================= */
+document.getElementById(
+    "targetUsername"
+).addEventListener(
+    "keydown",
+    function(e){
+        if(e.key === "Enter"){
+            submitUsername();
+        }
+    }
+);
+/* =========================
+   INITIAL MESSAGE
+========================= */
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+        streamText(
+            "Welcome to InstaTools Pro. Enter an Instagram username to explore the available interactive tools."
+        );
+    }
+);
+</script>
+</body>
+</html>
